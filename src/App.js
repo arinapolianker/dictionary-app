@@ -12,14 +12,13 @@ function App() {
     console.log(response.data[0]);
     setWord(response.data[0]);
   }
-
+  function enterWord(event) {
+    setKeyword(event.target.value);
+  }
   function search(event) {
     event.preventDefault();
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(url).then(handleResponse);
-  }
-  function enterWord(event) {
-    setKeyword(event.target.value);
   }
 
   return (
