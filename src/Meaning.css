@@ -21,3 +21,7 @@
 .syn:hover {
   background: rgb(246, 231, 255);
 }
+.pic {
+  max-width: 30%;
+  margin: 10px;
+}
