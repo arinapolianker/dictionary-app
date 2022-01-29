@@ -1,22 +1,20 @@
 import Meaning from "./Meaning.js";
 import Phonetic from "./Phonetic.js";
+import "./Dictionary.css";
 
 export default function Dictionary(props) {
   if (props.data) {
     return (
       <div>
-        <h1>{props.data.word}</h1>
-        <p>
-          {props.data.phonetics.map((phonetic, index) => {
-            return <Phonetic phonetic={phonetic} key={index} />;
-          })}
-        </p>
+        <div className="word">
+          <h2>{props.data.word}</h2>
+          <Phonetic phonetic={props.data.phonetics[0]} />
+        </div>
         <p>
           {props.data.meanings.map((meaning, index) => {
             return (
-              <div key={index}>
+              <div key={index} className="container">
                 <Meaning meaning={meaning} />
-                <hr />
               </div>
             );
           })}

@@ -1,22 +1,18 @@
+import Synonyms from "./Synonyms.js";
+import "./Meaning.css";
+
 export default function Meaning(props) {
   return (
     <div>
-      <h2>{props.meaning.partOfSpeech}</h2>
+      <h3>{props.meaning.partOfSpeech}</h3>
+      <hr />
       <p>
         {props.meaning.definitions.map((definition, index) => {
           return (
             <div key={index}>
-              <p>Definition: {definition.definition}</p>
-              <em>Example: {definition.example}</em>
-              <ul>
-                {definition.synonyms.map((synonym, index) => {
-                  if (index < 5) {
-                    return <li key={index}>{synonym}</li>;
-                  } else {
-                    return null;
-                  }
-                })}
-              </ul>
+              <p className="definition">{definition.definition}</p>
+              <em className="example">"{definition.example}"</em>
+              <Synonyms synonym={definition.synonyms} />
             </div>
           );
         })}

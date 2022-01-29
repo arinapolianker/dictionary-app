@@ -1,0 +1,20 @@
+.word {
+  margin: 20px 150px;
+  padding: 20px 40px;
+  background: linear-gradient(112.5deg, rgb(95, 10, 135) 11.4%, #a4508b 60.2%);
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  font-size: 40px;
+  text-transform: capitalize;
+}
+.sound {
+  border: none;
+  background: none;
+  margin-right: 5px;
+}
+.sound:hover {
+  color: rgb(234, 211, 255);
+}

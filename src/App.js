@@ -23,11 +23,19 @@ function App() {
 
   return (
     <div>
-      <h1>Dictionary</h1>
+      <div className="head">
+        <h1>Dictionary</h1>
+      </div>
+
       <form onSubmit={search}>
-        <input type="text" placeholder="search..." onChange={enterWord} />
-        <button>search</button>
+        <input
+          type="text"
+          placeholder="search a word..."
+          onChange={enterWord}
+        />
+        <button className="search">search</button>
       </form>
+
       <Dictionary data={word} />
       <Footer />
     </div>

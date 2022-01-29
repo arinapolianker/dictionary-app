@@ -1,6 +1,60 @@
+body {
+  background-color: rgb(246, 236, 255);
+}
+.head {
+  padding: 30px;
+  background: rgb(46, 21, 66);
+}
 h1 {
+  margin: 25px 80px;
   text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 35px;
+  letter-spacing: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+}
+
+form {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+}
+input {
+  padding: 10px 200px;
+  border: 2px solid rgb(46, 21, 66);
+}
+.search {
+  background: transparent;
+  border: 2px solid rgb(46, 21, 66);
+  color: rgb(46, 21, 66);
+  padding: 10px;
+  cursor: pointer;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.search:hover {
+  border-color: rgb(197, 149, 236);
+  color: rgb(190, 189, 190);
 }
 .footer {
-  margin: 50px;
+  text-align: center;
+  margin: 30px;
+  color: rgb(198, 137, 255);
+}
+.footer a {
+  text-decoration: none;
+  color: rgb(94, 23, 73);
+}
+.footer a:hover {
+  text-decoration: underline;
 }
