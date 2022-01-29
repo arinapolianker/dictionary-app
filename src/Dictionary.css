@@ -1,3 +1,11 @@
+.container {
+  max-width: 90%;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 5px;
+}
 .word {
   max-width: 40%;
   padding: 20px 40px;
@@ -9,6 +17,8 @@
 h2 {
   font-size: 40px;
   text-transform: capitalize;
+
+  font-family: "DM Serif Display", serif;
 }
 .sound {
   border: none;
@@ -17,4 +27,34 @@ h2 {
 }
 .sound:hover {
   color: rgb(234, 211, 255);
+}
+h3 {
+  font-family: "Arima Madurai", cursive;
+  letter-spacing: 4px;
+  font-weight: 800;
+}
+
+.definition {
+  margin-top: 10px;
+}
+.example {
+  color: grey;
+  margin-bottom: 40px;
+  font-family: "Josefin Sans", sans-serif;
+}
+.syn {
+  font-family: "Varela Round", sans-serif;
+  margin: 10px;
+  border: 1px solid rgb(65, 24, 75);
+  border-radius: 10px;
+  background: none;
+  color: rgb(65, 24, 75);
+  transition: 200ms all ease-in-out;
+}
+.syn:hover {
+  background: rgb(246, 231, 255);
+}
+.pic {
+  margin-bottom: 20px;
+  border-radius: 5px;
 }

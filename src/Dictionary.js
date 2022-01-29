@@ -1,7 +1,6 @@
-import Meaning from "./Meaning.js";
+import Synonyms from "./Synonyms.js";
 import Phonetic from "./Phonetic.js";
 import "./Dictionary.css";
-import "./Meaning.css";
 
 export default function Dictionary(props) {
   if (props.data) {
@@ -15,7 +14,22 @@ export default function Dictionary(props) {
           {props.data.meanings.map((meaning, index) => {
             return (
               <div key={index} className="container">
-                <Meaning meaning={meaning} />
+                <h3>{meaning.partOfSpeech}</h3>
+                <hr />
+                <p>
+                  {meaning.definitions.map((definition, index) => {
+                    return (
+                      <div key={index}>
+                        <p className="definition">{definition.definition}</p>
+                        <em className="example">"{definition.example}"</em>
+                        <Synonyms
+                          synonym={definition.synonyms}
+                          getSynonym={props.getSynonym}
+                        />
+                      </div>
+                    );
+                  })}
+                </p>
               </div>
             );
           })}

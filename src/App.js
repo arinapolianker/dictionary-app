@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Dictionary from "./Dictionary";
 import Photos from "./Photos";
@@ -7,13 +7,32 @@ import axios from "axios";
 
 function App() {
   const [keyword, setKeyword] = useState();
-  const [word, setWord] = useState();
-  const [photos, setPhotos] = useState();
+  const [word, setWord] = useState(null);
+  const [photos, setPhotos] = useState(null);
+  const [synonym, setSynonym] = useState();
+  const getSynonym = (value) => {
+    setSynonym(value);
+  };
+
+  useEffect(() => {
+    setSynonym(synonym);
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${synonym}`;
+    axios.get(url).then(handleResponse);
+
+    let pexelsApiakey =
+      "563492ad6f91700001000001f418c91d75d64ee88808e11dce0c8a29";
+    let pexelsUrl = `https://api.pexels.com/v1/search?query=${synonym}&per_page=9`;
+    axios
+      .get(pexelsUrl, {
+        headers: { Authorization: `Bearer ${pexelsApiakey}` },
+      })
+      .then(handlePexlesResponse);
+  }, [synonym]);
 
   function search(event) {
     event.preventDefault();
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    axios.get(url).then(handleDictionaryResponse);
+    axios.get(url).then(handleResponse);
     let pexelsApiakey =
       "563492ad6f91700001000001f418c91d75d64ee88808e11dce0c8a29";
     let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
@@ -21,12 +40,10 @@ function App() {
       .get(pexelsUrl, { headers: { Authorization: `Bearer ${pexelsApiakey}` } })
       .then(handlePexlesResponse);
   }
-  function handleDictionaryResponse(response) {
-    console.log(response.data[0]);
+  function handleResponse(response) {
     setWord(response.data[0]);
   }
   function handlePexlesResponse(response) {
-    console.log(response.data.photos);
     setPhotos(response.data.photos);
   }
   function enterWord(event) {
@@ -42,13 +59,13 @@ function App() {
       <form onSubmit={search}>
         <input
           type="text"
-          placeholder="search a word..."
+          placeholder="search for a word..."
           onChange={enterWord}
         />
         <button className="search">search</button>
       </form>
 
-      <Dictionary data={word} />
+      <Dictionary data={word} getSynonym={getSynonym} />
       <Photos photos={photos} />
       <Footer />
     </div>

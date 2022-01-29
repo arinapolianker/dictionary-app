@@ -3,13 +3,16 @@ export default function Phonetic(props) {
   const play = () => {
     audio.play();
   };
-
-  return (
-    <div>
-      <button onClick={play} className="sound">
-        <i class="fas fa-volume-up"></i>
-      </button>{" "}
-      <span> {props.phonetic.text}</span>
-    </div>
-  );
+  if (props.phonetic.audio) {
+    return (
+      <div>
+        <button onClick={play} className="sound">
+          <i class="fas fa-volume-up"></i>
+        </button>{" "}
+        <span> {props.phonetic.text}</span>
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
