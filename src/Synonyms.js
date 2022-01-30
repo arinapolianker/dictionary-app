@@ -5,11 +5,15 @@ export default function Synonyms(props) {
   }
   if (props.synonym) {
     return (
-      <div>
+      <div className="syn">
         {props.synonym.map((synonym, index) => {
           if (index < 10) {
             return (
-              <button className="syn" key={index} onClick={searchSynonym}>
+              <button
+                className="syn-button"
+                key={index}
+                onClick={searchSynonym}
+              >
                 {synonym}
               </button>
             );

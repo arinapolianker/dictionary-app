@@ -43,6 +43,9 @@ h3 {
   font-family: "Josefin Sans", sans-serif;
 }
 .syn {
+  margin-bottom: 10px;
+}
+.syn-button {
   font-family: "Varela Round", sans-serif;
   margin: 10px;
   border: 1px solid rgb(65, 24, 75);
@@ -51,10 +54,22 @@ h3 {
   color: rgb(65, 24, 75);
   transition: 200ms all ease-in-out;
 }
-.syn:hover {
+.syn-button:hover {
   background: rgb(246, 231, 255);
 }
 .pic {
   margin-bottom: 20px;
   border-radius: 5px;
+}
+@media (max-width: 570px) {
+  .word {
+    max-width: 70%;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .syn-button {
+    font-size: 10px;
+    margin: 5px;
+  }
 }
