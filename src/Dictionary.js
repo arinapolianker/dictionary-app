@@ -10,7 +10,7 @@ export default function Dictionary(props) {
           <h2>{props.data.word}</h2>
           <Phonetic phonetic={props.data.phonetics[0]} />
         </div>
-        <p>
+        <div>
           {props.data.meanings.map((meaning, index) => {
             return (
               <div key={index} className="container">
@@ -21,7 +21,7 @@ export default function Dictionary(props) {
                     return (
                       <div key={index}>
                         <p className="definition">{definition.definition}</p>
-                        <em className="example">"{definition.example}"</em>
+                        <em className="example">{definition.example}</em>
                         <Synonyms
                           synonym={definition.synonyms}
                           getSynonym={props.getSynonym}
@@ -29,11 +29,15 @@ export default function Dictionary(props) {
                       </div>
                     );
                   })}
+                  <Synonyms
+                    synonym={meaning.synonyms}
+                    getSynonym={props.getSynonym}
+                  />
                 </p>
               </div>
             );
           })}
-        </p>
+        </div>
       </div>
     );
   } else {

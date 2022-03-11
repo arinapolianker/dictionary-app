@@ -8,12 +8,9 @@ import axios from "axios";
 function App() {
   const [load, setLoad] = useState();
   const [keyword, setKeyword] = useState("hello");
-  const [word, setWord] = useState();
-  const [photos, setPhotos] = useState();
+  const [word, setWord] = useState(null);
+  const [photos, setPhotos] = useState(null);
   const [synonym, setSynonym] = useState();
-  const getSynonym = (value) => {
-    setSynonym(value);
-  };
 
   useEffect(() => {
     setSynonym(synonym);
@@ -28,10 +25,13 @@ function App() {
       .then(handlePexlesResponse);
   }, [synonym]);
 
-  function search(event) {
-    call();
+  const getSynonym = (value) => {
+    setSynonym(value);
+  };
 
+  function search(event) {
     event.preventDefault();
+    call();
   }
   function handleResponse(response) {
     setWord(response.data[0]);
